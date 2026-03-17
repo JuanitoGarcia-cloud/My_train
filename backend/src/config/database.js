@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+const db = {};
 const mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -30,8 +31,10 @@ const connectMongo = async () => {
   }
 };
 
+db.sequelize = sequelize;
+
 module.exports = {
-  sequelize,
+  db,
   connectMongo,
   mongoose,
 };

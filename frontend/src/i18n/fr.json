@@ -1,0 +1,11 @@
+{
+  "language": "Language",
+  "theme": "Theme",
+  "login": "Se connecter",
+  "logout": "Se déconnecter",
+  "search": "Rechercher un trajet",
+  "from": "Ville de départ",
+  "to": "Ville d'arrivée",
+  "submit": "Lancer la recherche",
+  "allRightsReserved": "Tous droits réservés"
+}

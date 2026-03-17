@@ -17,13 +17,6 @@ app.use(cors(corsOptions));
 // Body parser
 app.use(express.json());
 
-// Rate Limiter
-app.use(rateLimit({
-  windowMs: 720 * 60 * 1000, // 720 min
-  max: 100,// max 100 requêtes
-  message: "Trop de requêtes, réessayez plus tard."
-}));
-
 // Routes
 const authRoutes = require('./routes/authRoutes');
 const cityRoutes = require('./routes/cityRoutes');
@@ -44,7 +37,7 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Route introuvable' });
 });
 
-// Synchronisation DB (optionnel en prod)
+// Synchronisation DB
 async function initDatabase() {
   try {
     await sequelize.authenticate();
