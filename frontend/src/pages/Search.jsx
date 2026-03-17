@@ -1,66 +1,44 @@
-import { useEffect, useState } from 'react';
-import api from '../services/api';
-import { useTranslation } from 'react-i18next';
+import { useState } from "react";
+import api from "../api/axios";
 
 export default function Search() {
-  const { t } = useTranslation();
-  const [cities, setCities] = useState([]);
-  const [from, setFrom] = useState('');
-  const [to, setTo] = useState('');
+
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
   const [results, setResults] = useState([]);
 
-  useEffect(() => {
-    api.get('/cities').then(res => setCities(res.data));
-  }, []);
+  const search = async () => {
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
     const res = await api.get(`/search?from=${from}&to=${to}`);
+
     setResults(res.data);
   };
 
   return (
-    <div className="container mt-4">
-      <h1>{t('search')}</h1>
+    <div className="container">
 
-      <form onSubmit={handleSearch} className="row g-3">
-        <div className="col-md-5">
-          <label className="form-label">{t('from')}</label>
-          <select className="form-select" onChange={e => setFrom(e.target.value)}>
-            <option value="">--</option>
-            {cities.map(c => (
-              <option key={c.id}>{c.name}</option>
-            ))}
-          </select>
-        </div>
+      <h2>Recherche trajet</h2>
 
-        <div className="col-md-5">
-          <label className="form-label">{t('to')}</label>
-          <select className="form-select" onChange={e => setTo(e.target.value)}>
-            <option value="">--</option>
-            {cities.map(c => (
-              <option key={c.id}>{c.name}</option>
-            ))}
-          </select>
-        </div>
+      <input
+        placeholder="Ville départ"
+        onChange={(e) => setFrom(e.target.value)}
+      />
 
-        <div className="col-md-2 d-flex align-items-end">
-          <button className="btn btn-primary w-100">{t('submit')}</button>
-        </div>
-      </form>
+      <input
+        placeholder="Ville arrivée"
+        onChange={(e) => setTo(e.target.value)}
+      />
 
-      <div className="mt-4">
+      <button onClick={search}>Search</button>
+
+      <ul>
         {results.map((r, i) => (
-          <div key={i} className="card p-3 mb-3">
-            <strong>{r.line}</strong>
-            <ul>
-              {r.stops.map(s => (
-                <li key={s.id}>{s.StopCity.name}</li>
-              ))}
-            </ul>
-          </div>
+          <li key={i}>
+            {r.departureCity?.name} → {r.arrivalCity?.name}
+          </li>
         ))}
-      </div>
+      </ul>
+
     </div>
   );
 }
