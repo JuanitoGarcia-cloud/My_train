@@ -1,0 +1,11 @@
+{
+  "language": "Language",
+  "theme": "Color",
+  "login": "Login",
+  "logout": "Logout",
+  "search": "Search route",
+  "from": "Departure city",
+  "to": "Arrival city",
+  "submit": "Search",
+  "allRightsReserved": "All rights reserved"
+}
