@@ -1,0 +1,43 @@
+[
+{"type":"header","version":"5.2.1","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"train_app"},
+{"type":"table","name":"city","database":"train_app","data":
+[
+{"idCity":"1","nameCity":"Paris"},
+{"idCity":"2","nameCity":"Lyon"},
+{"idCity":"3","nameCity":"Marseille"},
+{"idCity":"4","nameCity":"Lille"},
+{"idCity":"5","nameCity":"Bordeaux"},
+{"idCity":"6","nameCity":"Nantes"},
+{"idCity":"7","nameCity":"Strasbourg"}
+]
+}
+,{"type":"table","name":"linestops","database":"train_app","data":
+[
+{"idLineStop":"1","trainLineId":"2","cityId":"4","stopOrder":"1"},
+{"idLineStop":"2","trainLineId":"2","cityId":"1","stopOrder":"2"},
+{"idLineStop":"3","trainLineId":"2","cityId":"5","stopOrder":"3"},
+{"idLineStop":"4","trainLineId":"1","cityId":"1","stopOrder":"1"},
+{"idLineStop":"5","trainLineId":"1","cityId":"2","stopOrder":"2"},
+{"idLineStop":"6","trainLineId":"1","cityId":"3","stopOrder":"3"}
+]
+}
+,{"type":"table","name":"schedules","database":"train_app","data":
+[
+{"idSchedule":"1","lineStopId":"1","time":"08h00"},
+{"idSchedule":"2","lineStopId":"2","time":"10h00"},
+{"idSchedule":"3","lineStopId":"3","time":"12h00"}
+]
+}
+,{"type":"table","name":"trainlines","database":"train_app","data":
+[
+{"idLine":"1","nameLine":"TGV Nord-Atlantique"},
+{"idLine":"2","nameLine":"TGV Méditerranée"}
+]
+}
+,{"type":"table","name":"users","database":"train_app","data":
+[
+
+]
+}
+]

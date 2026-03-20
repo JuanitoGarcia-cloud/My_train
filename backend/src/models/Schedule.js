@@ -4,7 +4,7 @@ const sequelize = require('../config/database');
 const Schedule = sequelize.define(
   'Schedule',
   {
-    idSchedule: {
+    idTime: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -13,7 +13,7 @@ const Schedule = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    timeStopCity: {
+    time: {
       type: DataTypes.TIME,
       allowNull: false,
     },

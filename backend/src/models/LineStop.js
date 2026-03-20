@@ -9,11 +9,11 @@ const LineStop = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    lineId: {
+    trainLineId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    cityId: {
+    stopCityId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

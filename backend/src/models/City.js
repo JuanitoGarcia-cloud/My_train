@@ -9,7 +9,7 @@ const StopCity = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    stopCityName: {
+    cityName: {
       type: DataTypes.STRING(100),
       allowNull: false,
       unique: true,
